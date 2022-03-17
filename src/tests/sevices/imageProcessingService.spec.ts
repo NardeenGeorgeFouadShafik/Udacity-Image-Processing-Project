@@ -1,7 +1,6 @@
 import { ImageProcessingService } from '../../services/imageProcessingService';
 import {
     ImageProcessing,
-    ImageProcessingLogger,
     ImageProcessingResponse,
     ResponseContentType,
     ResponseStatus,
@@ -10,8 +9,6 @@ import { promises as fsPromises, Stats } from 'fs';
 import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs/promises';
-import { ImageProcessingHelper } from '../../helpers/imageProcessingHelper';
-
 describe('isImageExistence', async () => {
     beforeEach(() => {});
 

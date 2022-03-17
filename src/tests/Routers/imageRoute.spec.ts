@@ -30,7 +30,7 @@ describe('GET /api/images', () => {
         await request(app).get('/api/image/resizeImage?fileName=music&height=1&width=1').expect(ResponseStatus.SUCCESS);
     });
 
-    it('request without /image', async () => {
+    it('request for listing images name', async () => {
         await request(app).get('/api/image/listImagesName').expect(ResponseStatus.SUCCESS);
     });
 });
