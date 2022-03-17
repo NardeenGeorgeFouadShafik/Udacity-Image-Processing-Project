@@ -8,7 +8,7 @@ We have to access specific route , and this route take image name, width and hei
 this image must be in our server ,and we resize this image according to the width and height that were sent
 in the route and save it in <b>Thumb</b> Folder.
 
-####Note That: 
+#### Note That: 
 <ul>
 <li>If the Image already requested before withe same width and height we shouldn't resize it again, we should just resend it </li>
 <li>If the image name is not an existing image name <b>Bad Request</b> will send</li>
@@ -16,7 +16,7 @@ in the route and save it in <b>Thumb</b> Folder.
 </ul>
 
 
-##Routes
+## Routes
 
 #### List of available images name that can be accessed through the endpoint
 
@@ -63,7 +63,7 @@ Start the dev server
   npm run start
 ```
 
-###NOTE:
+### NOTE:
 #### This Script of `npm run start` will run `prettier` , `lint`, `build`, `test`, `serve`
 #### So what you have to do to run all scripts is to run `npm run start`
 
