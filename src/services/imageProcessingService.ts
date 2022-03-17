@@ -33,7 +33,14 @@ export class ImageProcessingService {
             return Promise.resolve(false);
         }
     }
-
+    public static async isThumbFolderExist(): Promise<void> {
+        try {
+            await fsPromises.stat(`${path.resolve(__dirname, `../../assets/thumb/`)}`);
+        } catch (e) {
+            await fs.mkdir(`${path.resolve(__dirname, `../../assets/thumb`)}`);
+        }
+    }
+    
     public static async resizeImage(
         resizedImagePath: string,
         imageProcessing: ImageProcessing,
@@ -44,6 +51,7 @@ export class ImageProcessingService {
             const resizedImage: Buffer = await sharp(originalImage)
                 .resize(imageProcessing.width, imageProcessing.height)
                 .toBuffer();
+            await this.isThumbFolderExist();
             await fs.writeFile(resizedImagePath, resizedImage);
             return Promise.resolve(
                 new ImageProcessingResponse(
