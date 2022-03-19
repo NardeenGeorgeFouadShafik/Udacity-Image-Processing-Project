@@ -40,7 +40,7 @@ export class ImageProcessingService {
             await fs.mkdir(`${path.resolve(__dirname, `../../assets/thumb`)}`);
         }
     }
-    
+
     public static async resizeImage(
         resizedImagePath: string,
         imageProcessing: ImageProcessing,

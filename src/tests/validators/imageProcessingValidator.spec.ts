@@ -18,11 +18,15 @@ describe('validateImageProcessingParams', async () => {
         width: 10,
         height: 10,
     };
-
+    const missingImageProcessingParams: ImageProcessing = {
+        height: undefined,
+        width: undefined,
+        fileName: '',
+    };
     const reqMissingParams = {
         query: {
-            width: 10,
-            fileName: 'test',
+            width: 'ii',
+            fileName: '',
         },
     };
 
@@ -33,6 +37,6 @@ describe('validateImageProcessingParams', async () => {
 
     it('request has missing parameters Should return undefined', async () => {
         const res = ImageProcessingValidator.validateImageProcessingParams(<any>reqMissingParams);
-        expect(res).toEqual(undefined);
+        expect(res).toEqual(missingImageProcessingParams);
     });
 });

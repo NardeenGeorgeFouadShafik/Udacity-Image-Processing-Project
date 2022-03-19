@@ -8,10 +8,8 @@ export class ImageProcessingController {
     public static async processImage(req: Request): Promise<ImageProcessingResponse> {
         try {
             const imageProcessingParams = ImageProcessingValidator.validateImageProcessingParams(req);
-            if (!imageProcessingParams) {
-                return Promise.resolve(
-                    ImageProcessingHelper.imageProcessingErrorLogger(ImageProcessingLogger.MISSING_PARAMETERS),
-                );
+            if (!imageProcessingParams.fileName || !imageProcessingParams.height || !imageProcessingParams.width) {
+                return ImageProcessingValidator.retrieveCorrectErrorMsg(imageProcessingParams);
             }
             const isRequiredImageExist = await ImageProcessingService.isImageExist(imageProcessingParams.fileName!);
             if (!isRequiredImageExist) {

@@ -16,11 +16,12 @@ export class ImageProcessingHelper {
                     ResponseStatus.BAD_REQUEST,
                     ResponseContentType.HTML,
                 );
+
             case ImageProcessingLogger.MISSING_PARAMETERS:
                 return new ImageProcessingResponse(
-                    `<p style='color: red; font-size: large'>Please make sure that the url contains correct filename, height and width</p>
+                    `<p style='color: darkred; font-size: large'>Please make sure that the url contains correct filename, height and width</p>
 <h3>For Resizing Image Route</h3>
-<a style="color: darkblue;  text-decoration: underline;">http://localhost:3001/api/resizeImage?fileName=Name&height=number&width=number</a></br>
+<a style="color: darkblue;  text-decoration: underline;">http://localhost:3001/api/image/resizeImage?fileName=Name&height=number&width=number</a></br>
 <h3>For Listing Images Name</h3>
 <a style="color: midnightblue; text-decoration: underline"> http://localhost:3001/api/image/listImagesName </a>`,
                     ResponseStatus.BAD_REQUEST,

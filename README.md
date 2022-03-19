@@ -27,7 +27,7 @@ in the route and save it in <b>Thumb</b> Folder.
 #### Create thumb version of image
 
 ```http
-  GET /api/resizeImage?fileName={string}&height={number}&width={number}
+  GET /api/image/resizeImage?fileName={string}&height={number}&width={number}
 ```
 
 | Parameter  | Type     | Description                                               |

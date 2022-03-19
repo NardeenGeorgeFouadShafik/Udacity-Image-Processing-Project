@@ -20,6 +20,11 @@ describe('processImage', async () => {
         width: 100,
         fileName: 'music',
     };
+    const missingImageProcessingParams: ImageProcessing = {
+        height: 0,
+        width: 0,
+        fileName: '',
+    };
     const response: ImageProcessingResponse = new ImageProcessingResponse(
         'file',
         ResponseStatus.SUCCESS,
@@ -42,8 +47,8 @@ describe('processImage', async () => {
         const validateImageProcessingParamsSpy = spyOn(
             ImageProcessingValidator,
             'validateImageProcessingParams',
-        ).and.returnValue(undefined);
-        const isImageExistenceSpy = spyOn(ImageProcessingService, 'isImageExist').and.resolveTo(false);
+        ).and.returnValue(missingImageProcessingParams);
+        const isImageExistenceSpy = spyOn(ImageProcessingService, 'isImageExist').and.resolveTo(true);
         const retrieveThumbImageSpy = spyOn(ImageProcessingService, 'retrieveThumbImage').and.resolveTo(errorResponse);
         const res = await ImageProcessingController.processImage(<any>req);
         expect(validateImageProcessingParamsSpy.calls.count()).toEqual(1);
@@ -124,7 +129,6 @@ describe('listImagesName', async () => {
         try {
             await ImageProcessingController.listImagesName();
         } catch (e: any) {
-            console.log(e);
             expect(listImagesNameSpy.calls.count()).toEqual(1);
             expect(e.status).toEqual(ResponseStatus.BAD_REQUEST);
         }

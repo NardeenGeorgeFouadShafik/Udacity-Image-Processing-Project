@@ -4,16 +4,18 @@ import { ImageProcessingResponse } from '../../models/image.model';
 
 const imageRoute = express.Router();
 
-imageRoute.get('/resizeImage', async (req: Request, res: Response) => {
+imageRoute.get('/resizeImage', async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
     const imageProcessingResponse: ImageProcessingResponse = await ImageProcessingController.processImage(req);
-    res.status(imageProcessingResponse.status)
+    return res
+        .status(imageProcessingResponse.status)
         .contentType(imageProcessingResponse.contentType)
         .send(imageProcessingResponse.body);
 });
 
-imageRoute.get('/listImagesName', async (req: Request, res: Response) => {
+imageRoute.get('/listImagesName', async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
     const imageProcessingResponse: ImageProcessingResponse = await ImageProcessingController.listImagesName();
-    res.status(imageProcessingResponse.status)
+    return res
+        .status(imageProcessingResponse.status)
         .contentType(imageProcessingResponse.contentType)
         .send(imageProcessingResponse.body);
 });

@@ -9,6 +9,7 @@
     "jasmine": "jasmine",
     "start": "npm run lint && npm run prettier && npm run test && nodemon dist/server.js",
     "lint": "npx eslint . --ext .ts --fix",
+    "serve": "nodemon dist/server.js",
     "prettier": "prettier --write src/**/*.ts"
   },
   "keywords": [],
@@ -16,18 +17,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "image-size": "^1.0.0",
-    "jasmine": "^4.0.2",
-    "jasmine-spec-reporter": "^7.0.0",
     "node.js": "0.0.1-security",
-    "sharp": "^0.28.3",
-    "supertest": "^6.2.2"
+    "sharp": "^0.28.3"
   },
   "devDependencies": {
-    "@esm-bundle/chai": "^4.3.4-fix.0",
-    "@stryker-mutator/jasmine-runner": "^5.6.1",
+    "supertest": "^6.2.2",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
     "@types/express": "^4.17.13",
-    "@types/image-size": "^0.8.0",
     "@types/jasmine": "^3.10.3",
     "@types/node": "^17.0.21",
     "@types/sharp": "^0.28.3",
@@ -39,7 +36,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.29.3",
     "jasmine-core": "^4.0.1",
-    "karma-typescript": "^5.5.3",
     "node": "^17.5.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",

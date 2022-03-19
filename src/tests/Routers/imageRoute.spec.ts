@@ -13,7 +13,7 @@ describe('GET /api/images', () => {
     });
 
     it('error request', async () => {
-        await request(app).get('/api/images').expect(ResponseStatus.BAD_REQUEST);
+        await request(app).get('/api/image').expect(ResponseStatus.BAD_REQUEST);
     });
 
     it('request with missing params', async () => {
