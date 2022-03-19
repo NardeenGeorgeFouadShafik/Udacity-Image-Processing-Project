@@ -10,7 +10,7 @@ app.listen(3001, () => {
 });
 app.use('/api', routes);
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     const imageProcessingResponse: ImageProcessingResponse = ImageProcessingHelper.imageProcessingErrorLogger(
         ImageProcessingLogger.MISSING_PARAMETERS,
     );
